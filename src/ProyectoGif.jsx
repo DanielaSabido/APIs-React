@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { AddCategory } from "./components/AddCategory";
-import { GifGrid } from "./components/GifGrid";
+import { useState } from "react";
+import { AddCategory, GifGrid } from "./components";
+
 
 export const ProyectoGif = () => {
 
@@ -9,18 +9,18 @@ export const ProyectoGif = () => {
 //pone un arreglo que tenga 'One Punch' como valor inicial
 const [categories, setCategories] = useState(['Snoopy'])
 
-    const onAddCategory=(NewCategory) =>{
+    const onAddCategory=(newCategory) =>{
         //categoría 3 si se pone antes el nombre va a ir empujando hacia abajo las demas
        //categories.push(NewCategory);
-       if (categories.includes(NewCategory)) return; //si se introduce el mismo que ya esta, no se agrega
-        setCategories([NewCategory,...categories]) //forma 1: para agregar nuevas categorías a lalista 
+       if (categories.includes(newCategory)) return; //si se introduce el mismo que ya esta, no se agrega
+        setCategories([newCategory,...categories]); //forma 1: para agregar nuevas categorías a lalista 
        
        //forma 2 setCategories(cat => [...cat,'Categoría 3'])
     }
     return (        
         <> 
         {/* titulooooo */}
-            <h1> GifProyect </h1>
+            <h2> Giphy Proyect </h2>
         {/* Input */}
 
             <AddCategory 
@@ -31,7 +31,7 @@ const [categories, setCategories] = useState(['Snoopy'])
             categories.map((category)  => (
                  <GifGrid 
                         key={category} 
-                        category={categories} />
+                        category={category} />
             ))
                 }
         </>
