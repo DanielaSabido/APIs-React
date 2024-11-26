@@ -1,39 +1,49 @@
-import { useState } from "react";
-import { AddCategory, GifGrid } from "./components";
+import { useState } from "react"; 
+// Importamos el hook useState de React, que permite manejar el estado en componentes funcionales.
 
+import { AddCategory, GifGrid } from "./components"; 
+// Importamos dos componentes: AddCategory (para añadir categorías) y GifGrid (para mostrar los gifs de una categoría).
 
-export const ProyectoGif = () => {
+export const ProyectoGif = () => { 
+// Declaramos el componente funcional principal llamado ProyectoGif.
 
-    //Usando el Hook useState (función que permite agregar estado de React a los componentes funcionales)
-//Para evitar el posible error de Javascript por no definir un valor inicial, se le 
-//pone un arreglo que tenga 'One Punch' como valor inicial
-const [categories, setCategories] = useState(['Snoopy'])
+    // Usando el Hook useState (función que permite agregar estado de React a los componentes funcionales).
+    // Para evitar errores, se inicializa el estado 'categories' con un arreglo que contiene 'Snoopy' como valor inicial.
+    const [categories, setCategories] = useState(['Snoopy']); 
 
-    const onAddCategory=(newCategory) =>{
-        //categoría 3 si se pone antes el nombre va a ir empujando hacia abajo las demas
-       //categories.push(NewCategory);
-       if (categories.includes(newCategory)) return; //si se introduce el mismo que ya esta, no se agrega
-        setCategories([newCategory,...categories]); //forma 1: para agregar nuevas categorías a lalista 
-       
-       //forma 2 setCategories(cat => [...cat,'Categoría 3'])
-    }
+    // Función que se ejecutará para añadir una nueva categoría al estado.
+    const onAddCategory = (newCategory) => {
+        // Si la categoría ya existe en el arreglo, no hace nada y se sale de la función.
+        if (categories.includes(newCategory)) return; 
+        
+        // Actualiza el estado agregando la nueva categoría al inicio del arreglo.
+        setCategories([newCategory, ...categories]); 
+        
+        // Alternativa para agregar una nueva categoría al final del arreglo:
+        // setCategories(cat => [...cat, 'Categoría 3']);
+    };
+
     return (        
         <> 
-        {/* titulooooo */}
-            <h2> Giphy Proyect </h2>
-        {/* Input */}
+        {/* Fragmento React (etiqueta vacía) que permite agrupar varios elementos sin agregar un nodo extra al DOM. */}
+        
+        {/* Título principal del proyecto */}
+        <h2> Giphy Proyect </h2> 
 
-            <AddCategory 
-            //cuando lleva "on" es que esta emitiendo algo. No es obligatorio pero es común
-            onNewCategory = {(value) => onAddCategory(value)}
+        {/* Componente de entrada para agregar nuevas categorías */}
+        <AddCategory 
+            // Propiedad personalizada 'onNewCategory' que envía el valor ingresado en el componente hijo.
+            // Se pasa una función que llama a 'onAddCategory' con el valor recibido.
+            onNewCategory={(value) => onAddCategory(value)} 
+        />
+
+        {/* Mapeo de las categorías para renderizar un componente GifGrid por cada una */}
+        {categories.map((category) => (
+            <GifGrid 
+                key={category} // Se usa 'key' para que React identifique cada elemento único.
+                category={category} // Propiedad que se envía al componente GifGrid para procesar la categoría.
             />
-            {
-            categories.map((category)  => (
-                 <GifGrid 
-                        key={category} 
-                        category={category} />
-            ))
-                }
+        ))}
         </>
-    )
-} 
+    );
+};

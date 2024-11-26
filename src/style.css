@@ -1,65 +1,145 @@
 * {
-    font-family: Helvetica, Arial, sans-serif;
-    background-color: rgb(174, 163, 212);
-  }
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+  /* Fuente moderna y limpia para todo el documento. */
+  background-color: #f7f7f7; 
+  /* Fondo suave y claro para la página completa. */
   
-  body {
-    padding: 60px;
-  }
+}
+
+body {
+  padding: 20px;
+  margin: 0; 
+  /* Espaciado interno alrededor del contenido para que no quede pegado a los bordes. */
+  background-color: #ececec; 
+  /* Fondo suave para toda la página. */
+  color: #333; 
+  /* Color del texto en el cuerpo, ligeramente oscuro para mejorar la legibilidad. */
+}
+
+input {
+  background-color: #ffffff; 
+  /* Fondo blanco para los campos de entrada. */
+  border-radius: 25px; 
+  /* Bordes redondeados para un diseño más moderno y suave. */
+  border: 1px solid #6a4b9c; 
+  /* Borde de color morado suave. */
+  color: #333; 
+  /* Color oscuro para el texto dentro del campo. */
+  font-size: 1.5rem; 
+  /* Tamaño de fuente adecuado para mayor legibilidad. */
+  outline: none; 
+  /* Elimina el contorno predeterminado del navegador al enfocar el campo. */
+  padding: 12px 10px; 
+  /* Espaciado interno, con más espacio vertical y horizontal. */
+  width: 100%; 
+  /* Hace que el campo ocupe todo el ancho disponible. */
+  box-sizing: border-box; 
+  /* Asegura que el padding no afecte al tamaño total del campo. */
+  transition: all 0.3s ease; 
+  /* Transición suave al enfocar o cambiar el estilo del campo. */
   
-  input {
-    background-color: white;
-    border-radius: 20px;
-    border: 1px solid rgb(97, 32, 158);
-    color: black;
-    font-size: 1.5rem;
-    outline: none;
-    padding: 10px 15px;
-    width: 100%;
-  }
-  
-  h2 {
-    font-size: 3rem;
-    text-align: center;
-  
-  }
-  
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-  }
-  
-  .card-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .card {
-    align-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.03);
-    display: flex;
-    flex-direction: column;
-    height: 0%;  
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    overflow: hidden;
-  }
-  
-  .card p {
-    background-color: white;
-    flex: 1;
-    font-size: 1.5rem;
-    margin-top: 5px;
-    padding: 5px 20px 0px 20px;
-    text-align: center;
-  }
-  
-  .card img {
-    width: 100%;
-  }
+}
+
+input:focus {
+  border-color: #8e44ad; 
+  /* Cambio de borde al enfocar el campo, haciéndolo más visible. */
+  box-shadow: 0 0 5px rgba(142, 68, 173, 0.6); 
+  /* Sombra sutil en el borde al enfocar. */
+}
+
+h2 {
+  padding: 1.5rem; 
+  /* Elimina el espacio interno adicional. */
+  font-size: 4rem; 
+  /* Tamaño grande para el título principal, pero ligeramente más pequeño que antes. */
+  text-align: center; 
+  color: #5f4b8b; 
+  /* Color suave y elegante para el texto del título. */
+  margin-bottom: 20px; 
+  /* Espacio inferior para separar del contenido siguiente. */
+}
+
+h1 {
+  font-size: 2rem; 
+  /* Tamaño moderado para subtítulos o encabezados secundarios. */
+  margin-bottom: 20px; 
+  /* Espacio debajo para separar el texto de los elementos siguientes. */
+  color: #333; 
+  /* Color oscuro para mayor contraste y legibilidad. */
+  margin-left: 1.5em;
+}
+
+.card-grid {
+  display: flex; 
+  /* Usa un contenedor flexible para organizar las tarjetas. */
+  flex-direction: row; 
+  /* Coloca las tarjetas en fila horizontal. */
+  flex-wrap: wrap; 
+  /* Permite que las tarjetas se ajusten a una nueva fila si no caben en la actual. */
+  justify-content: center; 
+  /* Centra las tarjetas horizontalmente dentro del contenedor. */
+  gap: 30px; 
+  /* Agrega un espacio entre las tarjetas. */
+  margin-top: 20px; 
+  /* Espacio superior para separar las tarjetas del contenido anterior. */
+}
+
+.card {
+  align-content: center; 
+  /* Centra el contenido interno de las tarjetas. */
+  align-items: center; 
+  /* Alinea los elementos dentro de cada tarjeta. */
+  background-color: #ffffff; 
+  /* Fondo blanco para las tarjetas. */
+  border-radius: 15px; 
+  /* Bordes redondeados para las tarjetas. */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+  /* Sombra suave para dar profundidad y separación de la página. */
+  display: flex; 
+  /* Convierte las tarjetas en contenedores flexibles. */
+  flex-direction: column; 
+  /* Organiza los elementos de las tarjetas en una columna vertical. */
+  justify-content: center; 
+  /* Centra los elementos verticalmente dentro de cada tarjeta. */
+  overflow: hidden; 
+  /* Oculta cualquier contenido que sobresalga de los límites de las tarjetas. */
+  transition: transform 0.3s ease; 
+  /* Transición suave cuando se aplica un efecto hover. */
+}
+
+.card:hover {
+  transform: translateY(-10px); 
+  /* Efecto de desplazamiento suave hacia arriba cuando se pasa el ratón sobre la tarjeta. */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); 
+  /* Aumenta la sombra para dar un efecto de profundidad. */
+}
+
+.card p {
+  background-color: #ffffff; 
+  /* Fondo blanco para los textos dentro de las tarjetas. */
+  flex: 1; 
+  /* El texto ocupa todo el espacio restante dentro de la tarjeta. */
+  font-size: 1.3rem; 
+  /* Tamaño de texto ligeramente más pequeño para hacerlo más elegante. */
+  color: #555; 
+  /* Color del texto más suave para que no compita con la imagen. */
+  margin-top: 10px; 
+  /* Espacio superior para separar el texto de la imagen. */
+  padding: 10px 15px; 
+  /* Espaciado interno, con más énfasis en los laterales. */
+  text-align: center; 
+  /* Centra el texto horizontalmente. */
+  overflow: hidden; 
+  /* Evita que el texto se desborde si es demasiado largo. */
+}
+
+.card img {
+  width: 100%; 
+  /* La imagen ocupa todo el ancho disponible dentro de la tarjeta. */
+  border-top-left-radius: 15px; 
+  /* Redondea la parte superior izquierda de la imagen para coincidir con las tarjetas. */
+  border-top-right-radius: 15px; 
+  /* Redondea la parte superior derecha de la imagen para coincidir con las tarjetas. */
+  object-fit: cover; 
+  /* Asegura que la imagen se recorte y se ajuste bien dentro de la tarjeta. */
+}
